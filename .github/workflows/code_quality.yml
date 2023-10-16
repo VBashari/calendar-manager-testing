@@ -25,6 +25,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+      - name: Archive coverage data  # Archive data for using by Qodana
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-data
+          path: .qodana/code-coverage
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.2
         env:
